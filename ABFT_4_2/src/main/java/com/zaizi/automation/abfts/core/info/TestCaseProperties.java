@@ -32,6 +32,7 @@ import org.xml.sax.SAXException;
 
 import com.zaizi.automation.abfts.drivers.ChromeDriverStore;
 import com.zaizi.automation.abfts.drivers.FirefoxDriverStore;
+import com.zaizi.automation.abfts.drivers.PhantomJSDriverStore;
 import com.zaizi.automation.abfts.drivers.SafariDriverStore;
 
 /**
@@ -104,6 +105,11 @@ public class TestCaseProperties
         else if ("Safari".equals(BROWSER))
         {
             SafariDriverStore webDrvFac = new SafariDriverStore();
+            driver = webDrvFac.createWebDriver();
+        }
+        else if ("PhantomJS".equals(BROWSER))
+        {
+            PhantomJSDriverStore webDrvFac = new PhantomJSDriverStore();
             driver = webDrvFac.createWebDriver();
         }
         driver.get(HOST_URL);
